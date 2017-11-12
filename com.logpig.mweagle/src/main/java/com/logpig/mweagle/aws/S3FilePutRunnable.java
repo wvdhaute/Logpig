@@ -73,7 +73,7 @@ public class S3FilePutRunnable implements Runnable
 					{
 						s3Client.createBucket(this.s3Settings.bucketName, this.s3Settings.regionName);
 					}
-					final File logfile = new File(this.filePath);
+					final File logfile = new File(String.format("%s-%s", this.s3Settings.host, this.filePath));
 					final String keyName = UUID.randomUUID().toString();
 					final PutObjectRequest request = new PutObjectRequest(this.s3Settings.bucketName, keyName, logfile);
 					s3Client.putObject(request);

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.model.Region;
 /**
- * POJO to store Amazon S3 settings 
+ * POJO to store Amazon S3 settings
  *
  * @author Matt Weagle (mweagle@gmail.com)
  */
@@ -35,6 +35,8 @@ public class S3Settings {
 
 	public String bucketName;
 
+    public String host;
+
 	public Region regionName = S3Settings.DEFAULT_REGION_NAME;
 
 	public boolean mockPut = false;
@@ -47,7 +49,7 @@ public class S3Settings {
 
 	public ArrayList<String> getPostSettingsErrors() {
 		ArrayList<String>	errors = new ArrayList<String>();
-		
+
 		getSettingError("accessKey", accessKey, errors);
 		getSettingError("secretKey", secretKey, errors);
 		getSettingError("bucketName", bucketName, errors);
@@ -62,7 +64,7 @@ public class S3Settings {
 			errors.add(String.format("%s property cannot be null", name));
 		}
 	}
-	
+
 	private void getRetryValueErrors(ArrayList<String> errors)
 	{
 		if (retryCount <= 0)
@@ -80,7 +82,7 @@ Bucket names should not end with a dash
 Bucket names cannot contain adjacent periods
 Bucket names cannot contain dashes next to periods (e.g., "my-.bucket.com" and "my.-bucket" are invalid)
 Bucket names cannot contain uppercase characters
-		 */		
+		 */
 		if (null != bucketName)
 		{
 			if (bucketName.indexOf('_') != -1)
@@ -106,7 +108,7 @@ Bucket names cannot contain uppercase characters
 			if (!bucketName.equals(bucketName.toLowerCase()))
 			{
 				errors.add("Bucket names cannot contain uppercase characters");
-			}			
+			}
 		}
 	}
 }

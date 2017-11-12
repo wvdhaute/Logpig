@@ -130,6 +130,15 @@ public class S3RollingFileAppender<E> extends RollingFileAppender<E>
 		return s3Settings.mockPut;
 	}
 
+    public String getHost() {
+        return s3Settings.host;
+    }
+
+    public void setHost(final String host) {
+
+        s3Settings.host = host;
+    }
+
 	private void writeErrorMessage(String message)
 	{
 		System.err.println("[ERROR] S3RollingFileAppender - " + message);

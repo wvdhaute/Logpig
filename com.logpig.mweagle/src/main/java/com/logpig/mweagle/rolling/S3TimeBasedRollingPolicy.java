@@ -182,7 +182,7 @@ public class S3TimeBasedRollingPolicy<E> extends ch.qos.logback.core.rolling.Tim
 
 		ExecutorService executor = Executors.newScheduledThreadPool(1);
 		Future<?> future = executor.submit(compressAndPost);
-		executor.shutdown();
+//		executor.shutdown();
 		return future;
 	}
 

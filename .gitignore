@@ -3,3 +3,4 @@ com.logpig.mweagle/.classpath
 com.logpig.mweagle/.project
 com.logpig.mweagle/.settings/*
 com.logpig.mweagle/target/*
+com.logpig.mweagle/*.iml
